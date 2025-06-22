@@ -7,7 +7,7 @@ const AppBarComponent = ({ toggleTheme, mode }) => {
     <AppBar
       position="fixed"
       sx={{
-        background: 'linear-gradient(to right, #d4145a, #93278f)', // Magenta to Violet
+        background: 'linear-gradient(to right, #008080, #20B2AA)', // Teal Gradient
         boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
       }}
     >
@@ -29,7 +29,7 @@ const AppBarComponent = ({ toggleTheme, mode }) => {
         <IconButton
           onClick={toggleTheme}
           sx={{
-            color: '#ffd6e8', // Soft pastel pink
+            color: '#d0f0f0', // Light teal shade for icon
             transition: 'color 0.3s ease',
             '&:hover': {
               color: '#fff',

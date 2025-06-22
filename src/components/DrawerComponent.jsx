@@ -35,7 +35,7 @@ const DrawerComponent = () => {
         flexShrink: 0,
         '& .MuiDrawer-paper': {
           width: drawerWidth,
-          backgroundColor: '#1a1a2e',
+          backgroundColor: '#004d4d', // Deep teal background
           color: '#ffffff',
           boxShadow: '2px 0 10px rgba(0, 0, 0, 0.4)',
         },
@@ -55,17 +55,17 @@ const DrawerComponent = () => {
           sx={{
             width: 100,
             height: 100,
-            border: '3px solid #d4145a',
-            boxShadow: '0 0 10px #93278f',
+            border: '3px solid #20B2AA', // Light teal border
+            boxShadow: '0 0 10px #008080', // Classic teal glow
             marginBottom: 1,
           }}
         />
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ffd6e8' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#aaf0d1' }}>
           Dhruv's Portfolio
         </Typography>
       </Box>
 
-      <Divider sx={{ backgroundColor: '#444' }} />
+      <Divider sx={{ backgroundColor: '#006666' }} />
 
       <List>
         {navItems.map(({ text, icon, path }) => (
@@ -74,11 +74,11 @@ const DrawerComponent = () => {
               onClick={() => navigate(path)}
               sx={{
                 '&:hover': {
-                  background: 'linear-gradient(to right, #d4145a, #93278f)',
+                  background: 'linear-gradient(to right, #008080, #20B2AA)', // Teal gradient on hover
                 },
               }}
             >
-              <ListItemIcon sx={{ color: '#f3c6ff' }}>{icon}</ListItemIcon>
+              <ListItemIcon sx={{ color: '#aaf0d1' }}>{icon}</ListItemIcon>
               <ListItemText
                 primary={text}
                 sx={{ color: '#ffffff', fontWeight: 500 }}
