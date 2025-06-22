@@ -1,3 +1,4 @@
+// DrawerComponent.jsx
 import React from 'react';
 import {
   Drawer,
@@ -24,20 +25,20 @@ const navItems = [
   { text: 'Contact', icon: <ContactMail />, path: '/contact' },
 ];
 
-const DrawerComponent = () => {
+const DrawerComponent = ({ open, onClose }) => {
   const navigate = useNavigate();
 
   return (
     <Drawer
-      variant="permanent"
+      anchor="left"
+      open={open}
+      onClose={onClose}
+      ModalProps={{ keepMounted: true }}
       sx={{
-        width: drawerWidth,
-        flexShrink: 0,
         '& .MuiDrawer-paper': {
           width: drawerWidth,
-          backgroundColor: '#004d4d', // Deep teal background
+          backgroundColor: '#004d4d',
           color: '#ffffff',
-          boxShadow: '2px 0 10px rgba(0, 0, 0, 0.4)',
         },
       }}
     >
@@ -55,8 +56,8 @@ const DrawerComponent = () => {
           sx={{
             width: 100,
             height: 100,
-            border: '3px solid #20B2AA', // Light teal border
-            boxShadow: '0 0 10px #008080', // Classic teal glow
+            border: '3px solid #20B2AA',
+            boxShadow: '0 0 10px #008080',
             marginBottom: 1,
           }}
         />
@@ -71,18 +72,18 @@ const DrawerComponent = () => {
         {navItems.map(({ text, icon, path }) => (
           <ListItem key={text} disablePadding>
             <ListItemButton
-              onClick={() => navigate(path)}
+              onClick={() => {
+                navigate(path);
+                onClose();
+              }}
               sx={{
                 '&:hover': {
-                  background: 'linear-gradient(to right, #008080, #20B2AA)', // Teal gradient on hover
+                  background: 'linear-gradient(to right, #008080, #20B2AA)',
                 },
               }}
             >
               <ListItemIcon sx={{ color: '#aaf0d1' }}>{icon}</ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={{ color: '#ffffff', fontWeight: 500 }}
-              />
+              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}

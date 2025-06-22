@@ -20,41 +20,87 @@ const Contact = () => {
 
   return (
     <PageWrapper>
-      <Container maxWidth="md">
+      <Container maxWidth="sm" sx={{ mt: 8 }}>
         <Box
-          mt={8}
           display="flex"
           flexDirection="column"
           alignItems="center"
-          justifyContent="center"
           textAlign="center"
         >
-          <Typography variant="h4" gutterBottom>
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              fontWeight: 600,
+              fontFamily: 'Poppins, sans-serif',
+              color: 'primary.main'
+            }}
+          >
             To contact me, these are my details:
           </Typography>
 
-          <Paper elevation={4} sx={{ p: 5, mt: 4, width: '100%', maxWidth: 600 }}>
-            <Typography variant="h5" gutterBottom>
+          <Paper
+            elevation={5}
+            sx={{
+              p: 5,
+              mt: 4,
+              width: '100%',
+              borderRadius: 4,
+              backgroundColor: 'background.paper',
+              fontFamily: 'Poppins, sans-serif',
+              boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
+            }}
+          >
+            <Typography
+              variant="h5"
+              gutterBottom
+              sx={{ fontWeight: 600, mb: 2 }}
+            >
               📞 Phone
             </Typography>
-            <Typography variant="h4" color="primary" gutterBottom>
+            <Typography
+              variant="h4"
+              color="primary"
+              gutterBottom
+              sx={{ fontWeight: 700 }}
+            >
               +91-8971743204
             </Typography>
 
-            <Typography variant="h5" gutterBottom>
+            <Typography
+              variant="h5"
+              gutterBottom
+              sx={{ fontWeight: 600, mt: 4 }}
+            >
               ✉️ Email
             </Typography>
-            <Box display="flex" justifyContent="center" alignItems="center">
-              <Typography variant="h4" color="primary">
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              mt={1}
+            >
+              <Typography
+                variant="h4"
+                color="primary"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '1.2rem', sm: '1.8rem' }
+                }}
+              >
                 11b31249dhruvm@gmail.com
               </Typography>
               <IconButton
                 size="large"
                 color="primary"
                 onClick={handleEmailCopy}
-                sx={{ ml: 1 }}
+                sx={{
+                  ml: 1,
+                  transition: 'color 0.3s ease',
+                  '&:hover': { color: '#00bcd4' }
+                }}
               >
-                <ContentCopyIcon />
+                <ContentCopyIcon fontSize="large" />
               </IconButton>
             </Box>
           </Paper>
@@ -63,7 +109,8 @@ const Contact = () => {
             open={snackbarOpen}
             autoHideDuration={2000}
             onClose={() => setSnackbarOpen(false)}
-            message="Email copied!"
+            message="Email copied to clipboard!"
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
           />
         </Box>
       </Container>
