@@ -29,9 +29,9 @@ const navItems = [
   { text: 'About', icon: <Home />, path: '/' },
   { text: 'Projects', icon: <Folder />, path: '/projects' },
   { text: 'Resume', icon: <Description />, path: '/resume' },
-  { text: 'Contact', icon: <ContactMail />, path: '/contact' },
   { text: 'Experience', icon: <Work />, path: '/experience' },
   { text: 'Skills', icon: <CodeIcon />, path: '/skills' },
+  { text: 'Contact', icon: <ContactMail />, path: '/contact' },
 ];
 
 const DrawerComponent = ({ open, onClose }) => {
