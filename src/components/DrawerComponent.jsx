@@ -1,4 +1,3 @@
-// DrawerComponent.jsx
 import React from 'react';
 import {
   Drawer,
@@ -11,8 +10,16 @@ import {
   Typography,
   Divider,
   Box,
+  useTheme,
 } from '@mui/material';
-import { Home, Folder, Description, ContactMail } from '@mui/icons-material';
+import {
+  Home,
+  Folder,
+  Description,
+  ContactMail,
+  Work,
+} from '@mui/icons-material';
+import CodeIcon from '@mui/icons-material/Code';
 import { useNavigate } from 'react-router-dom';
 import profileImage from '../assets/profile.jpg';
 
@@ -23,9 +30,12 @@ const navItems = [
   { text: 'Projects', icon: <Folder />, path: '/projects' },
   { text: 'Resume', icon: <Description />, path: '/resume' },
   { text: 'Contact', icon: <ContactMail />, path: '/contact' },
+  { text: 'Experience', icon: <Work />, path: '/experience' },
+  { text: 'Skills', icon: <CodeIcon />, path: '/skills' },
 ];
 
 const DrawerComponent = ({ open, onClose }) => {
+  const theme = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -37,8 +47,9 @@ const DrawerComponent = ({ open, onClose }) => {
       sx={{
         '& .MuiDrawer-paper': {
           width: drawerWidth,
-          backgroundColor: '#004d4d',
-          color: '#ffffff',
+          backgroundColor:
+            theme.palette.mode === 'dark' ? '#003c3c' : '#e0ffff',
+          color: theme.palette.mode === 'dark' ? '#ffffff' : '#004d4d',
         },
       }}
     >
@@ -61,12 +72,12 @@ const DrawerComponent = ({ open, onClose }) => {
             marginBottom: 1,
           }}
         />
-        <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#aaf0d1' }}>
+        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
           Dhruv's Portfolio
         </Typography>
       </Box>
 
-      <Divider sx={{ backgroundColor: '#006666' }} />
+      <Divider sx={{ backgroundColor: theme.palette.divider }} />
 
       <List>
         {navItems.map(({ text, icon, path }) => (
@@ -78,12 +89,27 @@ const DrawerComponent = ({ open, onClose }) => {
               }}
               sx={{
                 '&:hover': {
-                  background: 'linear-gradient(to right, #008080, #20B2AA)',
+                  background:
+                    theme.palette.mode === 'dark'
+                      ? 'linear-gradient(to right, #006666, #009999)'
+                      : 'linear-gradient(to right, #b2fefa, #e0ffff)',
                 },
               }}
             >
-              <ListItemIcon sx={{ color: '#aaf0d1' }}>{icon}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon
+                sx={{
+                  color: theme.palette.mode === 'dark' ? '#aaf0d1' : '#008080',
+                }}
+              >
+                {icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={text}
+                sx={{
+                  color: theme.palette.mode === 'dark' ? '#fff' : '#004d4d',
+                  fontWeight: 500,
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}

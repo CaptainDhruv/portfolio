@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -8,6 +7,9 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
+import Experience from './pages/Experience';
+import Skills from './pages/Skills';
+
 import DrawerComponent from './components/DrawerComponent';
 import AppBarComponent from './components/AppBarComponent';
 
@@ -28,6 +30,22 @@ const App = () => {
       createTheme({
         palette: {
           mode,
+          ...(mode === 'dark'
+            ? {
+                background: {
+                  default: '#0a1929',
+                  paper: '#112240',
+                },
+              }
+            : {
+                background: {
+                  default: '#f2faff',
+                  paper: '#e0f7fa',
+                },
+              }),
+        },
+        typography: {
+          fontFamily: 'Poppins, sans-serif',
         },
       }),
     [mode]
@@ -45,6 +63,8 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/skills" element={<Skills />} />
           </Routes>
         </div>
       </Router>

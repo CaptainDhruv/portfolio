@@ -5,8 +5,6 @@ import {
   Typography,
   Avatar,
   Box,
-  Paper,
-  Divider
 } from '@mui/material';
 import PageWrapper from '../components/PageWrapper';
 import LinkedInFloatButton from '../components/LinkedInFloatButton';
@@ -51,7 +49,7 @@ const About = () => {
               `.NET Framework, React, Django, Spring Framework, Maven, Microsoft SQL Server, MySQL, PostgreSQL.`,
               `I've applied these skills in real-world projects—ranging from REST APIs and full-stack apps to cloud-based deployments and automation tools. I take pride in solving real problems through clean, efficient, and scalable code.`,
               `I'm currently exploring advanced backend development using Spring Boot and working on containerization and deployment using Docker and Kubernetes.`,
-              `Outside of coding, I enjoy mentoring juniors, contributing to open-source, and staying updated with the latest in software and AI. I’m excited to step into the industry and contribute meaningfully while continuing to grow as a developer.`
+              `Outside of coding, I enjoy mentoring juniors, contributing to open-source, and staying updated with the latest in software and AI. I’m excited to step into the industry and contribute meaningfully while continuing to grow as a developer.`,
             ].map((text, i) => (
               <Typography
                 key={i}
@@ -68,72 +66,6 @@ const About = () => {
                 {i === 3 ? <strong>{text}</strong> : text}
               </Typography>
             ))}
-          </Grid>
-
-          {/* Work Experience Section */}
-          <Grid item xs={12}>
-            <Divider sx={{ mb: 2 }} />
-            <Typography
-              variant="h5"
-              gutterBottom
-              sx={{
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 600,
-                color: 'secondary.main',
-                textAlign: 'center',
-              }}
-            >
-              Experience
-            </Typography>
-
-            {/* Internship 1 */}
-            <Paper
-              elevation={3}
-              sx={{
-                p: 2,
-                mb: 2,
-                minHeight: 150,
-                fontFamily: 'Poppins, sans-serif',
-                backgroundColor: 'background.paper',
-              }}
-            >
-              <Typography variant="h6">Web Dev Intern</Typography>
-              <Typography variant="subtitle2">
-                Manipal Institute of Technology · Internship
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Jun 2025 – Present · 1 mo  
-                <br />
-                Manipal · Remote
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                <strong>Skills:</strong> React.js, Spring Framework
-              </Typography>
-            </Paper>
-
-            {/* Internship 2 */}
-            <Paper
-              elevation={3}
-              sx={{
-                p: 2,
-                minHeight: 150,
-                fontFamily: 'Poppins, sans-serif',
-                backgroundColor: 'background.paper',
-              }}
-            >
-              <Typography variant="h6">Co-op Trainee, BSD, IT Department</Typography>
-              <Typography variant="subtitle2">
-                Jadwa Investment · Internship
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Jul 2024 – Jul 2024 · 1 mo  
-                <br />
-                Riyadh, Saudi Arabia · On-site
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                <strong>Skills:</strong> DBMS, Database Administration
-              </Typography>
-            </Paper>
           </Grid>
         </Grid>
       </Container>

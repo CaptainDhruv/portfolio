@@ -1,21 +1,27 @@
-// AppBarComponent.jsx
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import { LightMode, DarkMode, Menu } from '@mui/icons-material';
 
 const AppBarComponent = ({ toggleTheme, mode, onMenuClick }) => {
+  const isDark = mode === 'dark';
+  const textColor = isDark ? '#ffffff' : '#004d4d'; // Darker for light mode
+  const iconColor = isDark ? '#d0f0f0' : '#004d4d';
+
   return (
     <AppBar
       position="fixed"
       sx={{
-        background: 'linear-gradient(to right, #008080, #20B2AA)',
+        background: isDark
+          ? 'linear-gradient(to right, #004d4d, #007373)'
+          : 'linear-gradient(to right, #a7ffeb, #e0ffff)',
         boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
       }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <IconButton onClick={onMenuClick} sx={{ color: '#fff', mr: 2 }}>
+        <IconButton edge="start" onClick={onMenuClick} sx={{ color: iconColor }}>
           <Menu />
         </IconButton>
+
         <Typography
           variant="h6"
           component="div"
@@ -24,7 +30,7 @@ const AppBarComponent = ({ toggleTheme, mode, onMenuClick }) => {
             textAlign: 'center',
             fontWeight: 'bold',
             letterSpacing: '1px',
-            color: '#fff',
+            color: textColor,
           }}
         >
           Dhruv Muraleedharan | Full-Stack Developer
@@ -33,14 +39,14 @@ const AppBarComponent = ({ toggleTheme, mode, onMenuClick }) => {
         <IconButton
           onClick={toggleTheme}
           sx={{
-            color: '#d0f0f0',
+            color: iconColor,
             transition: 'color 0.3s ease',
             '&:hover': {
-              color: '#fff',
+              color: isDark ? '#ffffff' : '#008080',
             },
           }}
         >
-          {mode === 'dark' ? <LightMode /> : <DarkMode />}
+          {isDark ? <LightMode /> : <DarkMode />}
         </IconButton>
       </Toolbar>
     </AppBar>
